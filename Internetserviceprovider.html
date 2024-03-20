@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fontawesome.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,800,900&display=swap');
+        
+    
+
+        :root {
+            --primary: #1c262f;
+            --primary-light: #212d37;
+            --secondary: #0ee951;
+            --tertiary: #00dabf;
+            --gradient: linear-gradient(to right, #0ee951, #00dabf);
+            color: #fff;
+        }
+        .wrapper-main {
+            width: 100%;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Poppins", sans-serif;
+        }
+
+        h1 {
+            font-size: 60px;
+            font-weight: 500;
+        }
+
+        button {
+            font-family: sans-serif;
+        }
+
+        p,
+        ul,
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+        /* Section Background */
+        .home,
+        .about,
+        .services,
+        .plans,
+        .work,
+        .contact {
+            height: 110vh;
+            position: relative;
+        }
+
+        .services,
+        .work,
+        .contact,
+        .testimonial,
+        .footer {
+            background-color: var(--primary);
+        }
+        .about,
+        .plans,
+        .company,
+        .newsletter,
+        .location {
+            background-color: var(--primary-light);
+        }
+
+        .bottom{
+            background-color: black;
+        }
+
+        /*Gradient border and background on icons*/
+
+        .home .home-text,
+        .home .fas,
+        .plans .far,
+        .information .fas,
+        .work .fas,
+        .services .fas,
+        .location .far,
+        .location .fas {
+            padding: 15px 0;
+            background: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                from(#0ee951),
+                to(#00dabf)
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .navbar-nav a:hover,
+        .footer a:hover,
+        .footer .fab:hover {
+            cursor: pointer;
+            background: var(--gradient);
+            background-clip: text;
+            --webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /** Navigation */
+
+        .nav-item {
+    
+            width: 120px;
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            border-radius: 22px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar {
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 0.875rem;
+            background-color: var(--primary);
+            box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.025);
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style: none;
+            padding-right: 20px;
+        }
+        .navbar .navbar-brand {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+        .navbar .logo-image img {
+            width: 108px;
+            height: 32px;
+        }
+        .navbar .logo-text {
+            margin-top: 100px;
+            color: white;
+            font-weight: 500;
+            line-height: 1rem;
+            font-size: 1.25rem;
+            text-decoration: none;
+            font-family: "Poppins";
+            padding-left: 30px;
+        }
+
+        .offcanvas-collapse {
+            position: fixed;
+            top: 2.75rem;/*adjusts the height btn top of the page and offvanvas menu*/
+            bottom: 0;
+            left: 100%;
+            width: 100%;
+            overflow-y: auto;
+            visibility: hidden;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            background-color: var(--primary);
+            transition: transform 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        }
+        .offcanvas-collapse.open{
+            visibility: visible;
+            transform: translate(-100);
+        }
+
+        .navbar .navbar-nav {
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;        
+        }
+        .navbar .dropdown-menu{
+            border: none;
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            background-color: var(--primary);
+        }
+        .navbar .dropdown-item{
+            color: #eee;
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 0.875rem;
+            padding-top: 0.625rem;
+            text-decoration: none;
+            padding-bottom: 0.625rem;
+        }
+        .navbar .dropdown-item:hover {
+            background-color: var(--primary);
+        }
+
+        .navbar .dropdown-divider{
+            width: 100%;
+            height: 1px;
+            border: none;
+            margin: 0.5rem auto o.5rem auto;
+            background-color: var(--primary-light);        
+        }
+        .navbar .nav-item .nav-link {
+            color: #eee;
+            text-decoration: none;
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
+            transition: all 0.2s ease;
+        }
+
+        .navbar .fa-stack {
+            width: 2em;
+            font-size: 0.75rem;
+            margin-right: 0.25rem;
+        }
+
+        .navbar .fa-stack-2x {
+            background: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                from(#0ee951),
+                to(#00dabf)
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .navbar .fa-stack-1x {
+            color:#ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .navbar .fa-stack:hover .fa-stack-2x {
+            color: var(--primary);
+        }
+        .navbar .fa-stack:hover .fa-stack-1x {
+            color: var(--primary);
+        }
+        .navbar .navbar-toggler{
+            padding: 0;
+            border: none;
+            font-size: 1.25rem;
+        }
+
+        /* Home */
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    section1 {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-color: var(--primary-light);
+      background-size: cover;
+      background-position: center;
+    }
+    header {
+      position: relative;
+      width: 100%;
+      padding: 30px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    header .navigation {
+      display: flex;
+    }
+    header .navigation a {
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 2px 15px;
+      border-radius: 20px;
+      transition: 0.3s;
+      transition-property: background;
+    }
+    header .navigation a:not(:last-child) {
+      margin-right: 30px;
+    }
+    header .navigation a:hover {
+      background: #fff;
+    }
+    .content-home {
+      max-width: 650px;
+      margin: 60px 100px;
+    }
+    .content-home .info-home h2 {
+      font-size: 50px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      line-height: 60px;
+      margin-top: 80px;
+      margin-bottom: 30px;
+      color: #00dabf;
+    }
+    .content-home .info-home h2 span {
+      color: #0ee951;
+      font-weight: 600;
+    }
+    .content-home .info-home p {
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+    .media-Icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+    .media-Icons a {
+      color: #0ee951;
+      font-size: 15px;
+      transition: 0.3s;
+      transition-property: transform;
+    }
+    .media-Icons a:not(:last-child) {
+      margin-right: 60px;
+    }
+    .media-Icons a:hover {
+      transform: scale(1.5);
+    }
+    label {
+      display: none;
+    }
+    #check {
+      display: none;
+    }
+
+/* Responsive */
+@media only screen and (max-width: 960px) {
+  header .navigation {
+    display: none;
+    bottom: -6px;
+  }
+  .section1 {
+    min-height: 60vh;
+  }
+  label {
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: color;
+  }
+  label:hover {
+    color: #fff;
+  }
+  label .close-btn {
+    display: none;
+  }
+  #check:checked ~ header .navigation {
+    z-index: 2;
+    position: fixed;
+    background: #212d37;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #check:checked ~ header .navigation a {
+    font-weight: 700;
+    margin-right: 0;
+    margin: 50px;
+    letter-spacing: 2px;
+  }
+  #check:checked ~ header label .menu-btn {
+    display: none;
+    font-size: 5px;
+  }
+  #check:checked ~ header label .close-btn {
+    display: block;
+    position: fixed;
+    z-index: 2;
+  }
+  label .menu-btn {
+    position: absolute;
+    font-size: 30px;
+    bottom: -10px;
+  }
+  header .logo {
+    display: none;
+    position: absolute;
+    bottom: -6px;
+    margin-bottom: -80px;
+   
+  }
+  .content-home .info-home h2 {
+    font-size: 45px;
+    line-height: 50px;
+    padding-top: 20px;
+  }
+  .content-home .info-home h2 span {
+    font-size: 40px;
+    padding-top: 100px;
+  }
+  .content-home .info-home p {
+    font-size: 14px;
+    margin-bottom: 100px;
+    padding-top: 10px;
+  }
+  .media-Icons {
+    margin-bottom: 40px;
+  }
+  .my-3 {
+    padding-bottom: 100px;
+  }
+  .content-home .info-home {
+    padding-top: 100px;
+  }
+}
+
+
+@media only screen and (max-width: 560px) {
+  .content-home .info-home h2 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+  .content-home .info-home h2 span {
+    font-size: 30px;
+  }
+  .content-home .info-home p {
+    font-size: 14px;
+  }
+}
+
+
+        /* Information */
+		 .para-light-infor1,
+        .para-light-infor2,
+        .para-light-infor3 {
+            font-family: "Poppins";
+        }
+        .para-light-infor1 {
+            padding-left: 60px;
+        }
+        .para-light-infor2{
+            padding-left: 80px;
+        }
+        .para-light-infor3 {
+            padding-left: 80px;
+        }
+
+        .information .container-fluid .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+            gap: 0;
+            height: 30vh;
+        }
+ 
+        .information .container-fluid .row div:first-child {
+            background-color: var(--primary);
+        }
+
+        .information .container-fluid .row div:last-child {
+            background-color: var(--primary);
+        } 
+        .information .container-fluid .row div:nth-child(2) {
+            background-color: var(--primary-light);
+        }
+        .col-lg-4 {
+            padding: 20px;
+        }
+        .information .fa-tachometer-alt {
+            padding-left: 185px;
+        }
+        .information .fa-clock{
+            padding-left: 200px;
+        }
+        .information .fa-headset {
+            padding-left: 200px;
+        }
+        .information .py-3 {
+            padding-left: 140px;
+        }
+        .py-3-support-heading {
+            padding-left: 170px;
+			font-family: "Poppins";
+        }
+		.py-3 {
+			font-family: "Poppins";
+		}
+		/* For screens smaller than 768px (phones) */
+@media (max-width: 767px) {
+    .para-light-infor1,
+    .para-light-infor2,
+    .para-light-infor3 {
+        padding-left: 5%; /* Adjust padding relative to screen width */
+    }
+
+    .information .fa-tachometer-alt,
+    .information .fa-clock,
+    .information .fa-headset {
+        padding-left: 25%; /* Adjust padding relative to screen width */
+    }
+
+    .information .py-3,
+    .py-3-support-heading {
+        padding-left: 10%; /* Adjust padding relative to screen width */
+    }
+    .information .container-fluid .row {
+        min-height: 45vh;
+    }
+}
+
+/* For screens larger than 768px (tablets and desktops) */
+@media (min-width: 768px) {
+    .para-light-infor1,
+    .para-light-infor2,
+    .para-light-infor3 {
+        padding-left: 20%; /* Adjust padding relative to screen width */
+    }
+
+    .information .fa-tachometer-alt,
+    .information .fa-clock,
+    .information .fa-headset {
+        padding-left: 40%; /* Adjust padding relative to screen width */
+    }
+
+    .information .py-3,
+    .py-3-support-heading {
+        padding-left: 30%; /* Adjust padding relative to screen width */
+    }
+    .py-3-support-heading {
+        padding-left: 35%;
+    }
+}
+        
+
+        /* About us */
+        .about {
+    height: 80vh; /* Adjust height to fit content */
+    align-items: center;
+    padding-top: -20px;
+}
+.learn-more-btn .btn {
+    padding-bottom: -60px;
+}
+
+.learn-more-btn {
+    text-align: center; /* Center button */
+    font-family: "Poppins";
+
+}
+.about-title {
+    padding-top: 30px;
+}
+
+.about-title,
+.about-heading,
+.about-subheading,
+.about-content,
+.about-content1,
+.about-content2 {
+    text-align: center; /* Center text */
+    font-family: "Poppins";
+}
+
+/* Media query for screens smaller than 768px (phones) */
+@media (max-width: 767px) {
+    .learn-more-btn,
+    .about-title,
+    .about-heading,
+    .about-subheading,
+    .about-content,
+    .about-content1,
+    .about-content2 {
+        padding-left: 5px;
+        padding-right: 5px; /* Remove left padding */
+        text-align: center; /* Center text */
+    }
+    .about {
+        min-height: 350px;
+        padding: 5px;
+    }
+    .learn-more-btn {
+        padding-top: 60px;
+    }
+}
+
+/* Media query for screens larger than 768px (tablets and desktops) */
+@media (min-width: 768px) {
+    .learn-more-btn,
+    .about-title,
+    .about-heading,
+    .about-subheading,
+    .about-content,
+    .about-content1,
+    .about-content2 {
+        padding-left: 5%; /* Adjust left padding */
+        text-align: left; /* Align text to left */
+        padding-top: 10px;
+    }
+    .learn-more-btn {
+        padding-top: 40px;
+    }
+    .about {
+        max-height: 60vh;
+    }
+}
+
+
+        /* Button */
+
+        .btn {
+            color: #fff;
+            border-radius: 0;
+            border-width: 2px;
+            padding: 10px 30px;
+            border-image-slice: 1;
+            background-image: none;
+            background: transparent;
+            border-image-source: var(--gradient);
+            box-shadow: 5px 5px 5px 5px var(--secondary);
+        }
+
+        .btn:hover {
+            color: #fff;
+            box-shadow: none;
+            border-radius: 10px 30px;
+            transform: translate(5px, 5px);
+        }
+
+  
+
+        /* Other Pages Button */
+        .btn-tertiary {
+            color: black;
+            border-radius: 0;
+            border-width: 2px;
+            padding: 10px 30px;
+            border-image-slice: 1;
+            background-image: none;
+            background: transparent;
+            border-image-source: var(--gradient);
+            box-shadow: 5px 5px 0px 0px var(--secondary);
+        }
+
+        .btn-tertiary:hover {
+            color: black;
+            box-shadow: none;
+            box-shadow: 0;
+            padding: 10px 30px;
+            transform: translate(5px, 5px);
+        }
+
+        /* Services */
+        .py-2-1,
+.py-2-2,
+.py-2-3,
+.py-2-4,
+.py-2-5,
+.py-2-6,
+.para-light {
+    font-family: "Poppins";
+}
+
+/* Services */
+.services-title,
+.py-2-1-1,
+.service-description1,
+.service-description2,
+.service-description3 {
+    text-align: center;
+    padding-top: 20px;
+}
+.para-light.service-info1,
+.para-light.service-info2,
+.para-light.service-info3,
+.para-light.service-info4,
+.para-light.service-info5,
+.para-light.service-info6 {
+	margin-left: 30px;
+}
+
+.services .card {
+    padding: 20px;
+}
+
+/* Media query for screens smaller than 768px (phones) */
+@media (max-width: 767px) {
+    .services .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services .col-lg-4 {
+        flex: 1 1 100%; /* Each column takes full width */
+        max-width: 100%;
+        margin-bottom: -60px;
+    }
+}
+
+/* Media query for screens larger than 767px (tablets and desktops) */
+@media (min-width: 768px) {
+    .services .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Adjust as needed */
+        }
+
+        .services .col-lg-4 {
+            flex: 1 1 calc(33.333% - 20px); /* Adjust as needed */
+            max-width: calc(33.333% - 50px);
+            margin: -20px;
+            margin-bottom: 0px;
+            margin-top: 20px;
+			padding-left: 30px;
+
+        }
+}
+    
+
+
+
+        /* PLans */
+        .poppins-font,
+        .describe,
+        .point1,
+        .point2,
+        .point3,
+        .point4,
+        .point5,
+        .price {
+            font-family: "Poppins";
+        }
+        .title,
+        .subtitle,
+        .description {
+            padding-top: 20px;
+        }
+        .title {
+            text-align: center; /* Center the title */
+            font-family: "Poppins";
+        }
+        .subtitle {
+            text-align: center; /* Center the subtitle */
+            font-family: "Poppins";
+        }
+        .description {
+            text-align: center; /* Center the description */
+            font-family: "Poppins";
+        }
+        .plans .card {
+            padding: 20px;
+            height: auto; /* Adjust height to fit content */
+            max-width: 300px; /* Set maximum width for better responsiveness */
+            margin: 0 auto; /* Center the cards */
+            margin-bottom: 5px; /* Add margin between cards */
+        }
+        .plans .row {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .custom-col {
+            flex: 1 1 calc(33.333% - 20px);
+            max-width: calc(33.333% - 20px);
+        }
+
+        .plans .col-6 {
+            flex-basis: 100%; /* Set full width for smaller screens */
+        }
+
+        .icon-container {
+            text-align: center;
+        }
+
+        .icon-container i {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Media Query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .title {
+                padding-left: 0;
+            }
+            .subtitle {
+                padding-left: 0;
+            }
+            .description {
+                padding-left: 0;
+            }
+            .plans .row {
+                padding-left: 0;
+                margin-top: 20px; /* Adjust margin-top for smaller screens */
+            }
+        }
+
+
+
+
+        /* Our Work */
+        .work {
+            min-height: 80vh;
+            padding: 40px;
+        }
+
+        .work-title {
+            padding-left: 740px;
+            font-family: "Poppins";
+        }
+        .py-2-services {
+            padding-left: 600px;
+            font-family: "Poppins";
+        }
+        .para-light-describe {
+            padding-left: 220px;
+            font-family: "Poppins";
+        }
+        #global-reset {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .custom-wrapper {
+            position: absolute;
+            width: 80vw;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .custom-container {
+            width: 28vmin;
+            height: 28vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 1em 0;
+            position: relative;
+            font-size: 16px;
+            border-radius: 0.5em;
+            background-color: #21242b;
+            border-bottom: 10px solid #18f98f;
+        }
+
+        i {
+            color: #18f98f;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        span.num {
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            font-weight: 600;
+            font-size: 3em;
+        }
+
+        span.text {
+            color: #e0e0e0;
+            font-size: 1em;
+            text-align: center;
+            pad: 0.7em 0;
+            font-weight: 400;
+            line-height: 0;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .custom-wrapper {
+                width: 85vw;
+            }
+
+            .custom-container {
+                height: 26vmin;
+                width: 26vmin;
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .custom-wrapper {
+                width: 90vw;
+                flex-wrap: wrap;
+                gap: 30px;
+				margin-top: 300px;
+                padding-top: 100px;
+            }
+
+            .custom-container {
+                width: calc(50% - 40px);
+                height: 40vmin;
+                font-size: 14px;
+                min-height: 10vh;
+                margin-top: 100px;
+        
+            }
+
+            .work-title {
+                padding-left: 0;
+                text-align: center;
+            }
+            .py-2-services {
+                padding-left: 0;
+                text-align: center;
+            }
+            .para-light-describe {
+                padding-left: 0;
+                text-align: center;
+            }
+            .custom-container {
+                margin-bottom: 300px;
+                margin: 5px;
+            }
+            .custom-wrapper {
+                margin-top: 60px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .custom-wrapper {
+                gap: 15px;
+            }
+
+            .custom-container {
+                width: 100%;
+                height: 15vmin;
+                font-size: 8px;
+            }.work-title {
+                padding-left: 0;
+                text-align: center;
+            }
+            .py-2-services {
+                padding-left: 0;
+                text-align: center;
+            }
+            .para-light-describe {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+
+        /**** Testimonials *******/
+  
+        /* Back to Top Button */
+        #myBtn {
+            z-index: 99;
+            right: 20px;
+            width: 52px;
+            height: 52px;
+            bottom: 20px;
+            border: none;
+            outline: none;
+            display: none;
+            position: fixed;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #323137;
+        }
+
+        #myBtn:hover {
+            background-color: #0f0f11;
+        }
+        #myBtn img {
+            width: 18px;
+            margin-left: 0.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /***** Media Queries ******/
+
+        @media only screen and (max-width: 1024px) {
+            .services,
+            .work,
+            .testimonial,
+            .about,
+            .contact,
+            .plans {
+                height: 100%
+            }
+        }
+
+        @media (min-width: 992px) {
+            .slider-1 .swiper-container {
+                width: 92%
+            }
+
+            .slider-1 .swiper-button-prev {
+                left: -16px;
+                width: 22px;
+                background-size: 22px 34px;
+            }
+            .slider-1 .swiper-button-next {
+                right: -16px;
+                width: 22px;
+                background-size: 22px 34px;
+            }
+        }
+
+            /****Navigation *******/
+            .home {
+                position: relative;
+            }
+
+            #navbar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%; /* Make sure navbar spans the full width */
+                z-index: 1000; /* Ensure navbar appears above other content */
+            }
+
+            
+
+            .navbar {
+                box-shadow: none;
+                transition: all 0.2s;
+                padding-top: 1.75rem;
+                background-color: transparent;
+            }
+
+            .navbar .top-nav-collapse {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                background-color: var(--primary);
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.025);
+            }
+
+            .offcanvas-collapse {
+                position: static;
+                top: auto;
+                bottom: auto;
+                left: auto;
+                width: auto;
+                padding-right: 0;
+                padding-left: 0;
+                background-color: transparent;
+                overflow-y: visible;
+                visibility: visible;
+            }
+
+            .offcanvas-collapse.open {
+                transform: none;
+            }
+            .navbar .navbar-nav{
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .navbar .nav-item .nav-link {
+                padding-right: 0.75rem;
+                padding-left: 0.75rem;
+            }
+            .navbar .dropdown-menu {
+                padding-top: 0.75rem;
+                padding-bottom: 0.875rem;
+                box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.08);
+            }
+            .navbar .dropdown-divider {
+                width: 90%;
+            }
+            .navbar .social-icons {
+                margin-left: 0.5rem;
+            }
+            .navbar .fa-stack {
+                margin-right: 0;
+                margin-left: 0.25rem
+            }
+            
+        
+        /****Contact form *******/
+        .contact{
+            background-color: var(--primary-light);
+            height: 80vh;
+            padding-top: 70px;
+        }
+        .contact h1 {
+            text-align: center; /* Center the heading */
+            font-family: "Poppins";
+            font-size: x-large;
+        }
+        .contact-form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .contact-form form{
+            position: relative;
+            width: 90%; /* Adjusted width for better responsiveness */
+            max-width: 400px; /* Set maximum width */
+        }
+        form input,
+        form textarea{
+            width: 100%;
+            padding: 14px;
+            border: none;
+            outline: none;
+            background: #fff;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            color: black;
+        }
+        form input::placeholder,
+        form textarea::placeholder{
+            color: black;
+        }
+        textarea{
+            resize: none;
+            height: 200px;
+        }
+        form .send-btn{
+            width: 100%; /* Set button width to 100% */
+            max-width: none; /* Remove max-width */
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        form .send-btn:hover{
+            background: var(--main-color);
+        }
+
+        /* Media Query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .contact h1 {
+                padding-left: 0; /* Adjust padding for heading */
+                text-align: center; /* Center the heading */
+            }
+            .contact-form {
+                margin-top: 1rem; /* Adjust margin-top for form */
+            }
+            .contact-form form {
+                width: 50%; /* Adjusted width for better responsiveness */
+                max-width: 50%; /* Set maximum width */
+            }
+            .contact-form form,
+            .contact-form,
+            .contact h1 {
+                margin-bottom: 100px;
+            }
+            .contact {
+                max-height: 100vh;
+            }
+        }
+        
+        
+        /****FOOTER*******/
+        #custom-body {
+            padding: 0;
+            margin: 0;
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+
+        }
+        #custom-footer {
+            background-color: #1c262f;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        #custom-footer * {
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+        }
+        .custom-row {
+            padding: 2em 1em;
+        }
+        .custom-row.primary {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            align-items: stretch;
+        }
+        .custom-column {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 2em;
+            min-height: 15em;
+        }
+        .custom-h3 {
+            width: 100%;
+            text-align: left;
+            color: #00dabf;
+            font-size: 1.6em;
+            white-space: nowrap;
+        }
+        .custom-ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+        }
+        .custom-li:not(:first-child) {
+            margin-top: 0.8em;
+        }
+        .custom-ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .custom-ul li a:hover {
+            color: #00dabf;
+        }
+        .custom-about p {
+            text-align: justify;
+            line-height: 2;
+            margin: 0;
+        }
+        .custom-input,
+        .custom-button {
+            font-size: 1em;
+            padding: 1em;
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .custom-button {
+            background-color: #00dabf;
+            color: #ffffff;
+        }
+        .custom-social {
+            display: flex;
+            justify-content: space-around;
+            font-size: 2.4em;
+            flex-direction: row;
+            margin-top: 0.5em;
+        }
+        .custom-social i:hover {
+            color: #00dabf;
+        }
+        .custom-row.secondary {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .custom-row.secondary i {
+            font-size: 1em;
+            color: #00dabf;
+        }
+        .custom-row.secondary div {
+            padding: 1em 0;
+            width: 100%;
+        }
+        .custom-row.secondary div:hover {
+            background-color: #25262e;
+        }
+        .custom-copyright {
+            padding: 0.3em 1em;
+            background-color: #25262e;
+        }
+        .custom-copyright p {
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .custom-row.copyright {
+            text-align: center;
+        }
+        @media screen and (max-width: 850px) {
+            .custom-row.primary {
+                grid-template-columns: 1fr;
+                align-items: center;
+            }
+            .custom-row.secondary {
+                flex-direction: column;
+            }
+            #custom-footer {
+                width: 99.7%; /* Adjust the width as needed */
+                margin: auto;
+                min-height: 80vh; /* Center the column */
+            }
+            .custom-about p {
+                padding-left: -5px;
+            }
+            
+        }
+        @media screen and (max-width: 619px) {
+            .custom-row.primary {
+                grid-template-columns: 1fr;
+                align-items: center;
+            }
+            .custom-row.secondary {
+                flex-direction: column;
+            }
+            .custom-about p {
+                font-size: -5px;
+            }
+            #custom-footer {
+                font-size: 10px;
+            }
+        }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rustic and Citified Satellite Internet Services Kenya Ltd</title>
+    
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section1>
+        <input type="checkbox" id="check">
+        <header>
+          <h2><a href="" class="logo">Rustic & Citified Satellite Internet Services</a></h2>
+          <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Plans</a>
+            <a href="#">Contact</a>
+          </div>
+          <label for="check">
+            <i class="fas fa-bars menu-btn"></i>
+            <i class="fas fa-times close-btn"></i>
+          </label>
+        </header>
+        <div class="content-home">
+          <div class="info-home">
+            <h2>Best Satellite <br><span>Internet Plans For You</span></h2>
+            <p>We are the leading provider of high-speed satellite internet services, offering reliable connectivity solutions to individuals, businesses, and communities in rural and remote areas.Embark on a journey of seamless connectivity with our premier satellite internet plans.</p>
+            <div class="my-3">
+              <a class="btn" href="#plans">View Plans</a>
+            </div>
+          </div>
+        </div>
+        <div class="media-Icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </section1>
+
+    <!--Information-->
+    <section class="information">
+        <div class="container-fluid">
+            <div class="row text-light">
+                <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+                    <i class="fas fa-tachometer-alt fa-3x p-2"></i>
+                    <h4 class="py-3">Download 1 GBPS</h4><p class="para-light-infor1">Experience lightning-fast downloads<br>our blazing-fast download speeds ensure you can enjoy uninterrupted entertainment and productivity.</p>
+                </div>
+                <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+                    <i class="fas fa-clock fa-3x p-2"></i>
+                    <h4 class="py-3">99% Internet Uptime</h4><p class="para-light-infor2">With our commitment to reliability,<br>you can trust that your internet connection will be available when you need it most.</p>
+                </div>
+                <div class="col-lg-4 text-center p-5 text-dark" data-aos="zoom-in">
+                    <i class="fas fa-headset fa-3x p-2"></i>
+                    <h4 class="py-3-support-heading">24/7 Support</h4><p class="para-light-infor3"> Reliable customer support is essential for ensuring a seamless internet experience. <br> No matter the time of day or night.</p>
+                </div>
+            </div>
+        </div> <!--end of container-->
+    </section> <!--end of information-->
+
+    <!--About-->
+<section class="about d-flex align-items-center text-light py-5" id="about">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <p class="about-title">ABOUT US</p>
+                <h1 class="about-heading">We are top internet</h1>
+                <h1 class="about-subheading">service company</h1>
+                <p class="about-content">We are the leading provider of high-speed satellite internet solutions, catering to both rustic and citified environments.
+                <p class="about-content1"> With a commitment to bridging the digital divide,</p>
+                <p class="about-content2">we deliver reliable and fast internet connectivity to remote rural areas as well as bustling urban centers.</p>
+
+                <div class="my-3 learn-more-btn">
+                    <a class="btn" href="#your-link">Learn More</a>
+                </div>
+                
+            </div>
+        </div> <!--end of row-->
+    </div> <!--end of container-->
+</section> <!--end of about-->
+
+    <!--Services-->
+    <section class="services d-flex align-items-center py-5" id="services">
+        <div class="container text-light">
+            <div class="text-center pb-4">
+                <p class="services-title">OUR SERVICES</p>
+        <h2 class="py-2-1-1">Explore unlimited possibilities</h2>
+        <p class="para-light service-description1">We offer comprehensive satellite internet solutions </p>
+        <p class="para-light service-description2">designed to meet the diverse needs of customers in both rustic and citified environments.</p>
+        <p class="para-light service-description3">Our range of services encompasses:</p>
+    </div>
+            <div class="row gy-4 py-2" data-aos="zoom-in">
+                <div class="col-lg-4">
+                    <div class="card bg-transparent">
+                        <i class="fas fa-home fa-2x"></i>
+                        <h4 class="py-2-1">HOME BROADBAND</h4>
+    <p class="para-light service-info1"> We provide high-speed internet access to residential users through satellite technology.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-transparent">
+                        <i class="fas fa-wifi fa-2x"></i>
+                        <h4 class="py-2-2">HOME WIFI</h4>
+    <p class="para-light service-info2"> This is a technology that enables users to access the internet wirelessly within their homes. It is convenient and flexible way to connect.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-transparent">
+                        <i class="fas fa-phone fa-2x"></i>
+                        <h4 class="py-2-3">WORK BROADBAND</h4>
+    <p class="para-light service-info3"> High-speed internet service tailored to meet connectivity in organizations. This enables communication and productivity to work.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-transparent">
+                        <i class="fas fa-mobile fa-2x"></i>
+                        <h4 class="py-2-4">MOBILE CONNECTION</h4>
+    <p class="para-light service-info4"> We provide connectivity to mobile devices in remote or underserved areas where traditional terrestrial infrastructure is limited or unavailable</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-transparent">
+                        <i class="fas fa-home fa-2x"></i>
+                        <h4 class="py-2-5">SECUTITY</h4>
+    <p class="para-light service-info5"> We play a crucial role in providing secure connectivity for various applications and industries in remote and citified areas</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-transparent">
+                        <i class="fas fa-tv fa-2x"></i>
+                        <h4 class="py-2-6">TV SETUP BOX</h4>
+    <p class="para-light service-info6"> We provide an innovative solution for accessing high-quality entertainment content and internet-based services through television sets. </p>
+                    </div>
+                </div>
+            </div> <!--end of row-->
+        </div> <!--end of container-->
+    </section>  <!--end of services-->
+
+    <!--Plans-->
+    <section class="plans d-flex align-items-center py-5" id="plans">
+        <div class="container text-light">
+            <div class="text-center pb-4">
+                <p class="title">OUR PLANS</p>
+                <h2 class="subtitle">Explore unlimited possibilities</h2>
+                <p class="description">Rustic & Citified Satellite Internet Services offer various options tailored to different needs and usage scenarios. </p>
+            </div>
+            <div class="row gy=4" data-aos="zoom-in">
+                <div class="custom-col">
+                    <div class="card bg-transparent px-4">
+                        <h4 class="py-2">BASIC BUNDLE</h4>
+                        <P class="describe">Offers reliable connectivity for essential online activities</P>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point1">A download speed of 15 Mbps</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point2">It's suitable for individuals, households, or home offices</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point3">24/7 basic customer support</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point4"> Ensure hassle-free setup and maintenance for users</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point5">Browse websites without experiencing significant slowdowns</p>
+                        </div>
+                        <h4 class="price">Ksh 2500/=</h4>
+                        <div class="my-3">
+                            <!--<a class="btn" href="#your-link">View Plans</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-col">
+                    <div class="card bg-transparent px-4">
+                        <h4 class="py-2">BUSINESS BUNDLE</h4>
+                        <P class="describe">Faster internet speeds and enhanced reliability for business operations</P>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point1">A download speed of 50 Mbps</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point2">Efficiently handle tasks  without experiencing performance issues. </p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point3">24/7 priority customer support</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="point4"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point4">Ideal for businesses, remote workers or seemless internet connectivity for daily operations</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point5">Offers optional add-ons such as VPN connectivity</p>
+                        </div>
+                        <h4 class="price">Ksh 20,000/=</h4>
+                        <div class="my-3">
+                            <!--<a class="btn" href="#your-link">View Plans</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-col">
+                    <div class="card bg-transparent px-4">
+                        <h4 class="py-2">PREMIUM BUNDLE</h4>
+                        <P class="describe">Delivers lightning-fast speeds and robust performance</P>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point1"> A download speed of 150 Mbps</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point2"> Enjoy ultra-high-definition streaming and usage across multiple devices</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point3">24/7 premium customer support </p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point4">Ideal for large households and businesses with demanding connectivity requirements</p>
+                        </div>
+                        <div class="block d-flex align-items-center">
+                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                            <p class="point5">Offers advanced features such as advanced router capabilities</p>
+                        </div>
+                        <h4 class="price">Ksh 90,000/=</h4>
+                        <div class="my-3">
+                            <!--<a class="btn" href="#your-link">View Plans</a> -->
+                        </div>
+                    </div>
+                </div> 
+            </div> <!--end of row-->
+        </div> <!--end of container-->
+    </section> <!--end of plans-->
+
+
+    <!--Work-->
+    <section class="work d-flex align-items-center py-5">
+        <div class="example-element" data-aos="fade-up"></div>
+        <div class="container-fluid text-light">
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right">
+                    <!--<img class="img-fluid" src="work.jpg" alt="work">-->
+                </div>
+                <div class="col-lg-5 d-flex align-items-center px-4 py-3" data-aos="">
+                    <div class="row">
+                        <div class="text-center text-lg-start py-4 pt-lg-0">
+                            <p class="work-title">OUR WORK</p>
+    <h2 class="py-2-services">Explore unlimited possibilities</h2>
+    <p class="para-light-describe">Our package offers a comprehensive solution tailored to meet the diverse connectivity needs of businesses, organizations, and individuals.</p>
+                        </div>
+                        <div id="global-reset">
+                          <div class="custom-wrapper">
+                              <div class="custom-container">
+                                  <i class="fas fa-briefcase fa-2x"></i>
+                                  <span class="num" data-val="1253">0000</span>
+                                  <span class="text">PROJECTS COMPLETED</span>
+                              </div>
+                              <div class="custom-container">
+                                  <i class="fas fa-award fa-2x"></i>
+                                  <span class="num" data-val="150">000</span>
+                                  <span class="text">AWARDS</span>
+                              </div>
+                              <div class="custom-container">
+                                  <i class="fas fa-users fa-2x"></i>
+                                  <span class="num" data-val="1255">0000</span>
+                                  <span class="text">CUSTOMER ACTIVE</span>
+                              </div>
+                              <div class="custom-container">
+                                  <i class="fas fa-clock fa-2x"></i>
+                                  <span class="num" data-val="1157">0000</span>
+                                  <span class="text">GOOD REVIEWS</span>
+                              </div>
+                          </div>
+                    </div> <!--end of row-->
+                </div> <!--end of col-lg-5-->
+            </div> <!--end of row-->
+        </div> <!--end of container-->
+    </section><!--end of work-->
+
+    <script>
+        let valueDisplays = document.querySelectorAll(".num");
+        let interval = 4000;
+        valueDisplays.forEach((valueDisplay) => {
+            let startValue = 0;
+            let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+            let duration = Math.floor(interval / endValue);
+            let counter = setInterval(function () {
+                startValue += 1;
+                valueDisplay.textContent = startValue;
+                if (startValue == endValue) {
+                    clearInterval(counter);
+                }
+            }, duration);
+        });
+ 
+    </script>
+<!-- Testimonials-->
+
+<!-- Contact-->
+<section class="contact" id="contact">
+    <div class="wrapper.main">
+        <div class="heading">
+            <h1>Contact <span>Us</span></h1>
+        </div>
+        <div class="contact-form">
+            <form action="">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" name="" id="" placeholder="Enter Your Email" required>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Write Message Here..." required></textarea>
+                <input type="submit" value="Send" class="send-btn">           
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+    <!--FOOTER-->
+    <div id="custom-body">
+        <footer id="custom-footer">
+          <div class="custom-row primary">
+            <div class="custom-column custom-about">
+              <h3 class="custom-h3">Rustic & Citified Satellite Internet Services</h3>
+              <p class="custom-about">
+                Embark on a journey of seamless connectivity with our
+    
+                premier satellite internet plans.
+              </p>
+            </div>
+            <div class="custom-column custom-links">
+              <h3 class="custom-h3">Quick Links</h3>
+              <ul class="custom-ul">
+                <li class="custom-li">
+                  <a href="#faq">F.A.Q</a>
+                </li>
+                <li class="custom-li">
+                  <a href="#cookies-policy">Cookies Policy</a>
+                </li>
+                <li class="custom-li">
+                  <a href="#terms-of-services">Terms Of Service</a>
+                </li>
+                <li class="custom-li">
+                  <a href="#support">Support</a>
+                </li>
+                <li class="custom-li">
+                  <a href="#careers">Careers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="custom-column custom-subscribe">
+              <h3 class="custom-h3">Subscribe</h3>
+              <div>
+                <input type="email" class="custom-input" placeholder="Your email id here" />
+                <button class="custom-button">Subscribe</button>
+              </div>
+    
+            </div>
+          </div>
+          <div class="custom-row secondary">
+            <div>
+              <p>Call</p>
+              <p>+254 729 018 900</p>
+            </div>
+            <div>
+              <p>Email</p>
+              <p>ma3dinc@gmail.com</p>
+            </div>
+            <div>
+              <p>Location</p>
+              <p>Mwingi, Kitui County</p>
+            </div>
+          </div>
+          <div class="custom-row copyright">
+            <p>Copyright &copy; 2024 Daniel Safari | All Rights Reserved</p>
+          </div>
+        </footer>
+      </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        /* Navigation */
+        window.onscroll = function (){
+            scrollFunction();
+            scrollFunctionBTT();
+        };
+
+        function scrollFunction() {
+            let intViewportWidth = window.innerWidth;
+            if (
+                document.body.scrollTop > 30 ||
+                (document.documentElement.scrollTop > 30) & (intViewportWidth > 991)
+            ) {
+                document.getElementById("navbar").classList.add("top-nav-collapse");
+            } else if (
+                document.body.scrollTop < 30 ||
+                (document.documentElement.scrollTop < 30) & 
+                (intViewportWidth > 991)
+            ) {
+                document.getElementById("navbar").classList.remove("top-nav-collapse");
+            }
+        }
+
+        /* Navbar on Mobile */
+        let elements = document.querySelectorAll(".nav-link:not(.dropdown-toggle)");
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].addEventListener("click", () => {
+                document.querySelector(".offcanvas-collapse").
+                classList.toggle("open");
+            });
+        }
+
+        document.querySelector(".navbar-toggler").
+        addEventListener("click", () => {
+            document.querySelector(".offcanvas-collapse").
+            classList.toggle("open");
+        });
+
+        /* HOVER ON DESKTOP */
+
+        function toggleDropdown(e) {
+            const _d = e.target.closest(".dropdown");
+            let _m = document.querySelector(".dropdown-menu", _d);
+
+            setTimeout (
+                function () {
+                    const shouldOpen = _d.matches(":hover");
+                    _m.classList.toggle("show", shouldOpen);
+                    _d.classList.toggle("show", shouldOpen);
+
+                    _d.setAttribute("aria-expanded", shouldOpen);
+                },
+                e.type === "mouseleave" ? 300 : 0
+            );
+        }
+
+        /* ON HOVER */
+
+        const dropdownCheck = document.querySelector(".dropdown");
+
+        if (dropdownCheck !== null) {
+            document
+                .querySelector(".dropdown")
+                .addEventListener("mouseleave", toggleDropdown);
+            document
+                .querySelector(".dropdown")
+                .addEventListener("mouseover", toggleDropdown);
+            
+            
+            /* ON CLICK */
+            document.querySelector(".dropdown").addEventListener("click", (e) => {
+                const _d = e.target.closest(".dropdown");
+                let _m = document.querySelector(".dropdown-menu", _d);
+                if (_d.classList.contains("show")) {
+                    _m.classList.remove("show");
+                    _d.classList.remove("show");
+                } else {
+                    _m.classList.add("show");
+                    _d.classList.add("show");
+                }
+            });
+        }
+
+
+
+  // OUR WORK 
+
+      
+    </script>
+</body>
+</html>
